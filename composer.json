@@ -1,0 +1,17 @@
+{
+  "name": "matthias/wcs_quest-php_poo",
+  "description": "WCS php POO quests",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "MatthiasWanner",
+      "email": "matthias.wanner@gmail.com"
+    }
+  ],
+  "require": {}
+}
