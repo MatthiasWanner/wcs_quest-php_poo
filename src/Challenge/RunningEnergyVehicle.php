@@ -4,7 +4,7 @@ namespace App\Challenge;
 
 use App\Quest\Vehicle;
 
-class RunningEnergyVehicle extends Vehicle
+abstract class RunningEnergyVehicle extends Vehicle
 {
     public const ALLOWED_ENERGIES = [
         'gasoline',

@@ -2,7 +2,7 @@
 
 namespace App\Quest;
 
-class Vehicle
+abstract class Vehicle
 
 {
     // ⚠️ protected keyword allow only child Classes to acces them
