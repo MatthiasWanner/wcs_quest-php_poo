@@ -4,6 +4,7 @@ require __DIR__ . '/../vendor/autoload.php';
 use App\Quest\ElectricBike;
 use App\Quest\ChargingStation;
 use App\Quest\Bicycle;
+use App\Challenge\Speedometer;
 
 $firstElectricBike = new ElectricBike('red');
 $firstElectricBike->setCurrentSpeed(5);
@@ -21,6 +22,8 @@ $secondManualBike->setCurrentSpeed(15);
 
 ?>
 
+<h2>✨ The challenge example (with 10 kmh/h) => Corresponding <?php echo Speedometer::convertKmToMiles(10) ?> miles/h </h2>
+
 <p>
     🚲 Details about the first electric bike:
     <?php
@@ -29,7 +32,7 @@ $secondManualBike->setCurrentSpeed(15);
     ?>
     I full charge the frist bike with the charging station: <br>
     Energy level: <?php echo $chargingStation->fullCharge($firstElectricBike); ?>% <br>
-    CurrentSpeed: <?php echo $firstElectricBike->getCurrentSpeed(); ?> km/h
+    CurrentSpeed: <?php echo $firstElectricBike->getCurrentSpeed(); ?> km/h or <strong><?php echo Speedometer::convertKmToMiles($firstElectricBike->getCurrentSpeed()) ?> miles/h <br></strong>
     Switch on the light: <?php echo $firstElectricBike->switchOn() ? 'On' : 'Off'; ?><br>
     Switch off the light: <?php echo $firstElectricBike->switchOff() ? 'On' : 'Off'; ?><br>
 </p>
@@ -38,9 +41,9 @@ $secondManualBike->setCurrentSpeed(15);
     🚲 Details about the first electric bike:
     <?php
     echo 'Color: ' . $secondElectricBike->getColor() . '<br>';
-    echo 'Charge the second bike => ' . $firstElectricBike->charge(50) . '% <br>';
+    echo 'Charge the second bike => ' . $secondElectricBike->charge(50) . '% <br>';
     ?>
-    CurrentSpeed: <?php echo $secondElectricBike->getCurrentSpeed(); ?> km/h
+    CurrentSpeed: <?php echo $secondElectricBike->getCurrentSpeed(); ?> km/h or <strong><?php echo Speedometer::convertKmToMiles($secondElectricBike->getCurrentSpeed()) ?> miles/h <br></strong>
     Switch on the light: <?php echo $secondElectricBike->switchOn() ? 'On' : 'Off'; ?><br>
     Switch off the light: <?php echo $secondElectricBike->switchOff() ? 'On' : 'Off'; ?><br>
 </p>
@@ -50,7 +53,7 @@ $secondManualBike->setCurrentSpeed(15);
     <?php
     echo 'Color: ' . $firstManualBike->getColor() . '<br>';
     ?>
-    CurrentSpeed: <?php echo $firstManualBike->getCurrentSpeed(); ?> km/h<br>
+    CurrentSpeed: <?php echo $firstManualBike->getCurrentSpeed(); ?> km/h or <strong><?php echo Speedometer::convertKmToMiles($firstManualBike->getCurrentSpeed()) ?> miles/h <br></strong>
     Switch on the light: <?php echo $firstManualBike->switchOn() ? 'On' : 'Off'; ?> 💡 It speed is too slow to switch on light<br>
     Switch off the light: <?php echo $firstManualBike->switchOff() ? 'On' : 'Off'; ?><br>
 </p>
@@ -60,7 +63,7 @@ $secondManualBike->setCurrentSpeed(15);
     <?php
     echo 'Color: ' . $secondManualBike->getColor() . '<br>';
     ?>
-    CurrentSpeed: <?php echo $secondManualBike->getCurrentSpeed(); ?> km/h<br>
+    CurrentSpeed: <?php echo $secondManualBike->getCurrentSpeed(); ?> km/h or <strong><?php echo Speedometer::convertKmToMiles($secondManualBike->getCurrentSpeed()) ?> miles/h <br></strong>
     Switch on the light: <?php echo $secondManualBike->switchOn() ? 'On' : 'Off'; ?><br>
     Switch off the light: <?php echo $secondManualBike->switchOff() ? 'On' : 'Off'; ?><br>
 </p>
