@@ -12,9 +12,12 @@ $secondChallengeCar->setParkBrake(false);
 function startCar(Car $car)
 {
     try {
-        return $car->start();
+        echo $car->start();
     } catch (\Exception $e) {
-        return $e->getMessage();
+        $car->setParkBrake(false);
+        echo "The park brake was removed. {$car->start()}";
+    } finally {
+        echo " My car running like a donut!";
     }
 }
 
@@ -28,7 +31,7 @@ function printParkBrakeSate(Car $car)
 <p>
     🚗 I try to start the car #1 with the park brake: <br />
     Park brake status: <?php echo printParkBrakeSate($firstChallengeCar) ?><br />
-    Result: <?php echo startCar($firstChallengeCar) ?>
+    Result: <?php startCar($firstChallengeCar) ?>
 </p>
 
 <p>🚗 I try to start the car #2 without the park brake: <br />
