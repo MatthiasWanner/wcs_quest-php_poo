@@ -2,62 +2,55 @@
 
 namespace App\Challenge;
 
-class Car
+use App\Quest\Vehicle;
+
+class Car extends Vehicle
 {
-    private int $nbWheels = 4;
-    private int $currentSpeed = 0;
+    public const ALLOWED_ENERGIES = [
+        'gasoline',
+        'electric',
+    ];
     private int $energyLevel = 20;
+    private string $energy;
 
-    public function __construct(private string $color, private int $nbSeats, private string $energy)
+    public function __construct(string $color, int $nbSeats, string $energy)
     {
+        parent::__construct($color, $nbSeats);
+        $this->setNbWheels(4);
+        $this->setEnergy($energy);
     }
 
-    public function forward()
-    {
-        $this->currentSpeed = 15;
-    }
 
-    public function brake()
-    {
-        $this->currentSpeed = 0;
-    }
-
-    public function start()
-    {
-        $this->currentSpeed = 15;
-    }
-
-    public function getNbWheels()
-    {
-        return $this->nbWheels;
-    }
-
-    public function getCurrentSpeed()
-    {
-        return $this->currentSpeed;
-    }
-
-    public function getColor()
-    {
-        return $this->color;
-    }
-
-    public function getNbSeats()
-    {
-        return $this->nbSeats;
-    }
-
-    public function getEnergy()
+    public function getEnergy(): string
     {
         return $this->energy;
     }
 
-    public function getEnergyLevel()
+    public function getEnergyLevel(): int
     {
         return $this->energyLevel;
     }
 
-    public function introduceProperties()
+    public function setEnergy(string $energy): Car
+    {
+        if (in_array($energy, self::ALLOWED_ENERGIES)) {
+            $this->energy = $energy;
+        }
+
+        return $this;
+    }
+
+    public function setEnergyLevel(int $energyLevel): void
+    {
+        $this->energyLevel = $energyLevel;
+    }
+
+    public function start(): void
+    {
+        $this->currentSpeed = 15;
+    }
+
+    public function introduceProperties(): string
     {
         return "The {$this->getColor()} car have {$this->getNbSeats()} seats, {$this->getNbWheels()} wheels, and it runs on {$this->getEnergy()}";
     }

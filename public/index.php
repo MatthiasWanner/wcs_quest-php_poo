@@ -17,3 +17,5 @@ $secondChallengeCar = new Car('red', 4, 'gasoline');
 
 <p><?php echo $firstChallengeCar->introduceProperties() ?></p>
 <p><?php echo $secondChallengeCar->introduceProperties() ?></p>
+
+<p><?php var_dump(Car::ALLOWED_ENERGIES) ?></p>
