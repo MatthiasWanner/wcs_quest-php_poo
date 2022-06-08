@@ -53,6 +53,7 @@ class Truck extends RunningEnergyVehicle
 
     public function introduceVehicle(): string
     {
-        return parent::introduceProperties('truck');
+        $originalSentence = parent::introduceProperties('truck');
+        return "{$originalSentence} and it can store {$this->getStorageCapacity()}";
     }
 }

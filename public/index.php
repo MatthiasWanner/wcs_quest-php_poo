@@ -26,4 +26,7 @@ $secondTruck = new Truck('black', 3, 'gasoil', 15000);
 <p><?php echo $secondTruck->introduceVehicle() ?></p>
 <p><?php echo $secondTruck->forward() ?></p>
 <p><?php echo $secondTruck->brake() ?></p>
-<p><?php echo $secondTruck->getStorageCapacity() ?></p>
+<p><?php echo $secondTruck->getStorageState() ?></p>
+<p><?php echo $secondTruck->setCurrentStorage(15000) ?></p>
+<p><?php echo $secondTruck->getCurrentStorage() ?></p>
+<p><?php echo $secondTruck->getStorageState() ?></p>
