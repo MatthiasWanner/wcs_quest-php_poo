@@ -2,14 +2,13 @@
 
 namespace App\Quest;
 
-use App\Quest\Vehicle;
 use App\Quest\RechargeableInterface;
 
-class ElectricBike extends Vehicle implements RechargeableInterface
+class ElectricBike extends Bicycle implements RechargeableInterface
 {
     public function __construct(string $color)
     {
-        parent::__construct($color, 1, 2);
+        parent::__construct($color, 1);
     }
 
     public function charge(int $percentage): int
@@ -22,5 +21,10 @@ class ElectricBike extends Vehicle implements RechargeableInterface
     {
         // you must implement this method
         return $percentage;
+    }
+
+    public function switchOn(): bool
+    {
+        return true;
     }
 }

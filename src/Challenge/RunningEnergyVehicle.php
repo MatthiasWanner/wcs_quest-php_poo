@@ -3,8 +3,9 @@
 namespace App\Challenge;
 
 use App\Quest\Vehicle;
+use App\Challenge\LightableInterface;
 
-abstract class RunningEnergyVehicle extends Vehicle
+abstract class RunningEnergyVehicle extends Vehicle implements LightableInterface
 {
     public const ALLOWED_ENERGIES = [
         'gasoline',
@@ -49,5 +50,15 @@ abstract class RunningEnergyVehicle extends Vehicle
     protected function introduceProperties(?string $type = 'vehicle'): string
     {
         return "The {$this->getColor()} {$type} have {$this->getNbSeats()} seats, {$this->getNbWheels()} wheels, and it runs on {$this->getEnergy()}";
+    }
+
+    public function switchOn(): bool
+    {
+        return true;
+    }
+
+    public function switchOff(): bool
+    {
+        return false;
     }
 }
