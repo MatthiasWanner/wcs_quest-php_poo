@@ -1,40 +1,31 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
 
-use App\Challenge\Car;
+use App\Quest\ElectricBike;
+use App\Quest\ChargingStation;
 
-$firstChallengeCar = new Car('blue', 5, 'electric');
-$firstChallengeCar->setParkBrake(true);
+$firstElectricBike = new ElectricBike('red');
+$secondElectricBike = new ElectricBike('blue');
 
-$secondChallengeCar = new Car('red', 4, 'gasoline');
-$secondChallengeCar->setParkBrake(false);
-
-function startCar(Car $car)
-{
-    try {
-        echo $car->start();
-    } catch (\Exception $e) {
-        $car->setParkBrake(false);
-        echo "The park brake was removed. {$car->start()}";
-    } finally {
-        echo " My car running like a donut!";
-    }
-}
-
-function printParkBrakeSate(Car $car)
-{
-    return $car->getParkBrakeState() ? 'engaged' : 'unlocked';
-}
+$chargingStation = new ChargingStation();
 
 ?>
 
 <p>
-    🚗 I try to start the car #1 with the park brake: <br />
-    Park brake status: <?php echo printParkBrakeSate($firstChallengeCar) ?><br />
-    Result: <?php startCar($firstChallengeCar) ?>
+    <?php
+    echo '🚲 First electric bike: ' . $firstElectricBike->getColor() . '<br>';
+    echo '🚲 Second electric bike: ' . $secondElectricBike->getColor() . '<br>';
+    ?>
 </p>
 
-<p>🚗 I try to start the car #2 without the park brake: <br />
-    Park brake status: <?php echo printParkBrakeSate($secondChallengeCar) ?><br />
-    Result: <?php echo startCar($secondChallengeCar) ?>
+<p>
+    <?php
+    echo 'Charge the first bike => ' . $firstElectricBike->charge(10) . '% <br>';
+    echo 'Charge the second bike => ' . $firstElectricBike->charge(50) . '% <br>';
+    ?>
+</p>
+
+<p>
+    I full charge the frist bike with the charging station: <br>
+    Energy level: <?php echo $chargingStation->fullCharge($firstElectricBike); ?>%
 </p>
