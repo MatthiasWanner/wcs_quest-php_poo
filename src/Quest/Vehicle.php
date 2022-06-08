@@ -7,9 +7,9 @@ class Vehicle
 {
     // ⚠️ protected keyword allow only child Classes to acces them
     protected int $currentSpeed;
-    protected int $nbWheels;
 
-    public function __construct(protected string $color, protected int $nbSeats)
+
+    public function __construct(protected string $color, protected int $nbSeats, protected int $nbWheels)
     {
     }
 

@@ -2,56 +2,17 @@
 
 namespace App\Challenge;
 
-use App\Quest\Vehicle;
+use App\Challenge\RunningEnergyVehicle;
 
-class Car extends Vehicle
+class Car extends RunningEnergyVehicle
 {
-    public const ALLOWED_ENERGIES = [
-        'gasoline',
-        'electric',
-    ];
-    private int $energyLevel = 20;
-    private string $energy;
-
     public function __construct(string $color, int $nbSeats, string $energy)
     {
-        parent::__construct($color, $nbSeats);
-        $this->setNbWheels(4);
-        $this->setEnergy($energy);
+        parent::__construct($color, $nbSeats, $energy, 4);
     }
 
-
-    public function getEnergy(): string
+    public function introduceVehicle(): string
     {
-        return $this->energy;
-    }
-
-    public function getEnergyLevel(): int
-    {
-        return $this->energyLevel;
-    }
-
-    public function setEnergy(string $energy): Car
-    {
-        if (in_array($energy, self::ALLOWED_ENERGIES)) {
-            $this->energy = $energy;
-        }
-
-        return $this;
-    }
-
-    public function setEnergyLevel(int $energyLevel): void
-    {
-        $this->energyLevel = $energyLevel;
-    }
-
-    public function start(): void
-    {
-        $this->currentSpeed = 15;
-    }
-
-    public function introduceProperties(): string
-    {
-        return "The {$this->getColor()} car have {$this->getNbSeats()} seats, {$this->getNbWheels()} wheels, and it runs on {$this->getEnergy()}";
+        return parent::introduceProperties('car');
     }
 }

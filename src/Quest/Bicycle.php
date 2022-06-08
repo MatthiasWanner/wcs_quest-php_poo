@@ -8,6 +8,6 @@ class Bicycle extends Vehicle
 {
     public function __construct(string $color)
     {
-        parent::__construct($color, 1);
+        parent::__construct($color, 1, 2);
     }
 }
